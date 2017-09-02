@@ -1,0 +1,11 @@
+/*
+ * Routing for pages
+ */
+
+var index = require('./routes/index');
+
+module.exports = function(app) {
+	
+	app.get('/', index.render);
+	
+};
