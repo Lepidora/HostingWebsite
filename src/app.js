@@ -6,7 +6,12 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
-  , sass = require('node-sass-middleware');
+  , sass = require('node-sass-middleware')
+  , bodyParser = require('body-parser')
+  , methodOverride = require('method-override')
+  , favicon = require('serve-favicon')
+  , morgan = require('morgan')
+  , errorHandler = require('errorhandler');
 
 var routes = require('./routes');
 
@@ -22,17 +27,17 @@ app.use(sass({
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
+app.set('view engine', 'pug');
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+//app.use(express.methodOverride());
+//app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if (app.get('env') === 'development') {
-  app.use(express.errorHandler());
+  app.use(errorHandler());
 }
 
 routes(app);
