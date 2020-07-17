@@ -3,13 +3,12 @@
  */
 
 const characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const idLength = 7;
 
-module.exports.generateID = function() {
+module.exports.generateID = function(length) {
 	
 	var id = "";
 	
-	for (var index = 0; index < idLength; index++) {
+	for (var index = 0; index < length; index++) {
 		
 		var characterPosition = Math.floor(Math.random() * characters.length);
 		var character = characters[characterPosition];

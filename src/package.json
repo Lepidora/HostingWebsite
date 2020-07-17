@@ -1,13 +1,21 @@
 {
-  "name": "LepidoraHosting",
+  "name": "lepidorahosting",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "3.2.6",
-    "jade": "*",
-    "node-sass-middleware": "^0.11.0"
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "pug": "*",
+    "method-override": "^3.0.0",
+    "mocha": "^8.0.1",
+    "morgan": "^1.10.0",
+    "node-sass-middleware": "^0.11.0",
+    "serve-favicon": "^2.5.0",
+    "sinon": "^9.0.2"
   }
 }
